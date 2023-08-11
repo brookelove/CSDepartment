@@ -3,6 +3,7 @@ import com.example.CSDepartment.models.behavioral.observer.AlertStudent;
 import com.example.CSDepartment.models.behavioral.observer.SimpleEnrollmentStatus;
 import com.example.CSDepartment.models.structural.decorator.Instructor;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -14,6 +15,7 @@ public class Course {
     private String syllabus;
     private String title;
     private Integer seats;
+   @Id
     private UUID ID;
     private char grade;
     private Instructor instructor;

@@ -1,14 +1,14 @@
 package com.example.CSDepartment.models.common;
-import com.example.CSDepartment.models.behavioral.strategy.CalculateGPA;
-import com.example.CSDepartment.models.behavioral.strategy.CumulativeGPA;
 import com.example.CSDepartment.models.creational.abstractfactory.Program;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import java.util.ArrayList;
 import java.util.UUID;
 
 
 @Entity
 public class Student implements com.example.CSDepartment.models.behavioral.observer.Student {
+    @Id
     private UUID studentId;
     private String name;
     private String email;
