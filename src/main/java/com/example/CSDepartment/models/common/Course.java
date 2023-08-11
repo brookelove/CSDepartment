@@ -1,31 +1,26 @@
 package com.example.CSDepartment.models.common;
-
-import com.example.CSDepartment.models.behavioral.observer.Chairperson;
-import com.example.CSDepartment.models.behavioral.observer.Student;
-import com.example.CSDepartment.models.creational.abstractfactory.Program;
-import com.example.CSDepartment.models.structural.composite.ConcentrationComponent;
-import com.example.CSDepartment.models.structural.decorator.BasicFaculty;
-import com.zaxxer.hikari.util.ClockSource;
+import com.example.CSDepartment.models.behavioral.observer.AlertStudent;
+import com.example.CSDepartment.models.behavioral.observer.SimpleEnrollmentStatus;
+import com.example.CSDepartment.models.structural.decorator.Instructor;
 import jakarta.persistence.Entity;
-import org.aspectj.asm.internal.ProgramElement;
 
 import java.util.ArrayList;
 import java.util.UUID;
 //used in structural-composite,
 
 @Entity
-public class Course implements ConcentrationComponent {
+public class Course {
     private String description;
     private String syllabus;
     private String title;
     private Integer seats;
     private UUID ID;
     private char grade;
-    private BasicFaculty instructor;
+    private Instructor instructor;
     private ArrayList<Student> enrolledStudents;
     private ArrayList<Student> waitList;
 
-    public Course(BasicFaculty instructor, String title, String description, String syllabus, Character grade, ArrayList<Student> enrolledStudents, ArrayList<Student> waitList, Integer seats){
+    public Course(Instructor instructor, String title, String description, String syllabus, Character grade, ArrayList<Student> enrolledStudents, ArrayList<Student> waitList, Integer seats){
         this.description = description;
         this.syllabus = syllabus;
         this.ID = UUID.randomUUID();
@@ -60,7 +55,7 @@ public class Course implements ConcentrationComponent {
     public Character getGrade(){
         return grade;
     }
-    public BasicFaculty getInstructor(){return instructor;}
+    public Instructor getInstructor(){return instructor;}
     public ArrayList<Student> getEnrolledStudents() {
         return enrolledStudents;
     }
@@ -69,30 +64,33 @@ public class Course implements ConcentrationComponent {
     }
     public void addStudent(Student student){
         if(enrolledStudents.size() == seats){
+            SimpleEnrollmentStatus capSize = new SimpleEnrollmentStatus();
+            String studentName = student.getName();
+//            String chairpersonName = chairperson.;
+            AlertStudent studentAlert = new AlertStudent(studentName,capSize);
+//            AlertChairperson chairpersonAlert = new AlertChairperson(chairpersonName,capSize);
+            capSize.setStudentValue(studentName + ": There are no more seats in " + title + "you will be wait listed");
+            capSize.setChairpersonValue(title + "This class has ben wait listed.");
             waitList.add(student);
-            //alert the chairperson
-            //alert the student that they have been wait listed
+            //alert the chairperson========================================
+        } else if (enrolledStudents.size() < seats) {
+            enrolledStudents.add(student);
         } else {
             enrolledStudents.add(student);
         }
     }
     //may need to do
     public void dropStudent(Student student){
+//        need to find student then drop them after
         enrolledStudents.remove(student);
-        if (waitList.size() > 0 ){
+        if (waitList.size() > 0 ){ // and enrolled students are not the current size
             Student newStudent = waitList.remove(0);
+            String newStudentName = newStudent.getName();
             enrolledStudents.add(newStudent);
-            //alert chairperson
-            // alert student they have been enrolled
+            SimpleEnrollmentStatus capSize = new SimpleEnrollmentStatus();
+            String studentName = student.getName();
+            AlertStudent studentAlert = new AlertStudent(newStudentName,capSize);
+            capSize.setStudentValue(newStudentName + "You have been added to " + title);
         }
-    }
-    @Override
-    public String getDescription() {
-        return description;
-    }
-
-    @Override
-    public String format() {
-        return syllabus; // this has to be created in HTML format can be a string
     }
 }

@@ -3,7 +3,7 @@ package com.example.CSDepartment.models.behavioral.observer;
 public interface EnrollmentStatusAlert {
     public void registerChairpersonStatus(Chairperson chairperson);
     public void registerStudentStatus(Student student);
-    public void notifyObserver();
+    public void notifyStudentObserver();
+    public void notifyChairpersonObserver();
 
-    void update(String notification);
 }

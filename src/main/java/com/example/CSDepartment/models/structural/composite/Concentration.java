@@ -2,7 +2,7 @@ package com.example.CSDepartment.models.structural.composite;
 
 import java.util.ArrayList;
 
-class Concentration implements ConcentrationComponent{
+public class Concentration implements ConcentrationComponent{
     private String description;
     private ArrayList<ConcentrationComponent> components = new ArrayList<>();
     public Concentration(String description) {

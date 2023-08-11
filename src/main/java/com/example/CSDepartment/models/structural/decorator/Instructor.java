@@ -1,12 +1,10 @@
 package com.example.CSDepartment.models.structural.decorator;
 
 import com.example.CSDepartment.models.common.Course;
-import jakarta.persistence.Entity;
 
 import java.util.ArrayList;
 
-@Entity
-public abstract class BasicFaculty implements Faculty {
+public abstract class Instructor implements Faculty {
     protected String name;
     protected String email;
     protected String number;
@@ -14,7 +12,7 @@ public abstract class BasicFaculty implements Faculty {
     protected ArrayList<Course> courseList;
     protected ArrayList<String> queryList;
 
-    public BasicFaculty(String name, String email, String number, Integer courseCap, ArrayList<Course> courseList, ArrayList<String> queryList) {
+    public Instructor(String name, String email, String number, Integer courseCap, ArrayList<Course> courseList, ArrayList<String> queryList) {
         this.name = name;
         this.email = email;
         this.number = number;

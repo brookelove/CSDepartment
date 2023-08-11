@@ -1,6 +1,7 @@
 package com.example.CSDepartment.models.common;
+import com.example.CSDepartment.models.behavioral.strategy.CalculateGPA;
+import com.example.CSDepartment.models.behavioral.strategy.CumulativeGPA;
 import com.example.CSDepartment.models.creational.abstractfactory.Program;
-import com.example.CSDepartment.models.structural.decorator.BasicFaculty;
 import jakarta.persistence.Entity;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -45,8 +46,6 @@ public class Student implements com.example.CSDepartment.models.behavioral.obser
     public ArrayList<Course> getPastClasses() {
         return pastClasses;
     }
-
-
     @Override
     public void update(String status) {
         status = "Pending...";
