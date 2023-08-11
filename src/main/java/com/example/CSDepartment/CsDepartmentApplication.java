@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CsDepartmentApplication {
 
 	public static void main(String[] args) {
-		System.out.println("Open http://localhost:8888 in browser");
 		SpringApplication.run(CsDepartmentApplication.class, args);
 	}
 

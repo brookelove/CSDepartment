@@ -1,6 +1,6 @@
 package com.example.CSDepartment.models.structural.composite;
 
-interface ConcentrationComponent {
+public interface ConcentrationComponent {
     String getDescription();
     String format();
 }

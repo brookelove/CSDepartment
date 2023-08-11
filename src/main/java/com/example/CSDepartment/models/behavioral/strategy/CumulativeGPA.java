@@ -11,7 +11,7 @@ public class CumulativeGPA implements CalculateGPA {
         double totalCreditHours = 0;
         double weight = 4;
         for(Course course: courses){
-            double gradeValue = 0; //course.getGrade().getValue()
+            double gradeValue = course.getCredit();
             int credits = 0; //course.getCredits();
         }
         return totalCreditHours/weight;

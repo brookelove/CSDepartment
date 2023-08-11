@@ -1,9 +1,10 @@
 package com.example.CSDepartment.models.creational.abstractfactory;
 
 import com.example.CSDepartment.models.common.Course;
+import jakarta.persistence.Entity;
 
 import java.util.ArrayList;
-
+@Entity
 public class Degree implements Program{
     private String programType = "Degree";
     private String programName;

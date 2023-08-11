@@ -9,10 +9,10 @@ public class WeightedGPA implements CalculateGPA{
         double totalCreditHours = 0;
         double totalWeight = 0;
         for (Course course : courses){
-            double gradeValue = 0; //this is going to be courses.getGrade().getValue()
-            double allWeights = 0; // student.getCourses().getGrade()getValue() to recursively call to grades to get value
-            totalCreditHours += gradeValue * allWeights;
-            totalCreditHours += allWeights;
+            double gradeValue = course.getCredit();
+            double weights = 4;
+            totalCreditHours += gradeValue * weights;
+            totalCreditHours += weights;
         }
         return totalCreditHours/totalWeight;
     }
