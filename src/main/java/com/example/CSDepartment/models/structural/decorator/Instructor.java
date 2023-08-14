@@ -1,10 +1,16 @@
 package com.example.CSDepartment.models.structural.decorator;
 
 import com.example.CSDepartment.models.common.Course;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
+@Entity
 public abstract class Instructor implements Faculty {
+    @Id
+    protected UUID ID;
     protected String name;
     protected String email;
     protected String number;
@@ -13,6 +19,7 @@ public abstract class Instructor implements Faculty {
     protected ArrayList<String> queryList;
 
     public Instructor(String name, String email, String number, Integer courseCap, ArrayList<Course> courseList, ArrayList<String> queryList) {
+        this.ID = UUID.randomUUID();
         this.name = name;
         this.email = email;
         this.number = number;

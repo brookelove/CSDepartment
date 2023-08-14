@@ -15,7 +15,7 @@
 >10. [Questions?](#questions)
 ## DESCRIPTION:
 
-For my final project for MET CS 665 I have to create a mock computer science department. The point of this is to create a project using design patterns. I did not have to complete the entire portion.
+For my final project for MET CS 665 I have to create a mock computer science department. The point of this is to create a project using design patterns. I did not have to complete the entire portion. I am trying to use SpringBoot which I am coming up to an issue with the Gradel that shows depreciation fails thinking that it is a 9.0 
 
 ## USER STORY:
 
@@ -42,11 +42,8 @@ For my final project for MET CS 665 I have to create a mock computer science dep
 - Decorator
 ## OUTLINE
 ## TOOLS USED
-- CSS
 - Github
 - Java
-- MYSQL
-- React
 - SpringBoot
 - [Spring Initializer](https://start.spring.io/)
 

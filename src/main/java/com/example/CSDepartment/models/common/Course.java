@@ -25,7 +25,6 @@ public class Course {
     public Course(Instructor instructor, String title, String description, String syllabus, Character grade, ArrayList<Student> enrolledStudents, ArrayList<Student> waitList, Integer seats){
         this.description = description;
         this.syllabus = syllabus;
-        this.ID = UUID.randomUUID();
         this.title = title;
         this.instructor = instructor;
         this.grade = grade;
